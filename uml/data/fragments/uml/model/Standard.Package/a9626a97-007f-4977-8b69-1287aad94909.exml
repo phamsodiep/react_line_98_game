@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="uml" version="4">
+  <OBJECT>
+    <ID name="uml" mc="Standard.Package" uid="a9626a97-007f-4977-8b69-1287aad94909"/>
+    <PID name="uml" mc="Standard.Project" uid="05fd7483-531e-4e5d-aa3b-e6047c6f1869"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[uml]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedInformationFlow">
+        <OBJECT>
+          <ID name="clicked cell" mc="Standard.InformationFlow" uid="1b89ac2b-378b-486e-a6fc-f8e9e6740bad"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[clicked cell]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="displayed board" mc="Standard.InformationFlow" uid="b55d425d-a122-4ba1-a755-9fba33c45f78"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[displayed board]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="select cell" mc="Standard.InformationFlow" uid="9dbd60a6-7e91-44a4-882e-dce512671900"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[select cell]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="BallManager" mc="Standard.Interface" uid="32c3a8d4-5ed1-4a85-99b9-546cf6685936"/>
+            </LINK>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID name="Note" mc="Infrastructure.Note" uid="f9212b37-bd52-4706-8e01-6652efe687b2"/>
+                <ATTRIBUTES>
+                  <ATT name="Content"><![CDATA[Cell without ball has a null ball to listen on select cell event]]></ATT>
+                  <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+                  <ATT name="Name"><![CDATA[Note]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="display balls" mc="Standard.InformationFlow" uid="e5f8baea-bcfe-43e9-bc72-fb0fad29ade4"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[display balls]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="BallManager" mc="Standard.Interface" uid="32c3a8d4-5ed1-4a85-99b9-546cf6685936"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="display cells" mc="Standard.InformationFlow" uid="55d2f879-4f8c-4b95-996b-eb00219e120a"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[display cells]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="GameBoard" mc="Standard.Class" uid="4b66118a-dc6d-4171-86e4-54152f1f7a5f"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="click" mc="Standard.InformationFlow" uid="ed1be436-a23f-493c-9937-bad97f060435"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[click]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Button" mc="Standard.Class" uid="180e85ee-5242-46f0-9256-b1f71d366b0e"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="display score" mc="Standard.InformationFlow" uid="b8ea17ef-d9d0-4314-8530-65225e4a5da1"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[display score]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="ScoreBoard" mc="Standard.Interface" uid="6d91dd17-86c1-48b5-9539-620de59d5e0a"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="notify" mc="Standard.InformationFlow" uid="58b104ea-9d06-43df-b724-c1300dba1c40"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[notify]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="WinPriceCallback" mc="Standard.Interface" uid="e93a02d2-5cad-433e-9a72-6537e24b3682"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Content Owner" mc="Standard.Actor" uid="7513e06a-c8e1-45a7-83ea-4927940319a0"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="BA" mc="Standard.Package" uid="8db03b71-e98b-4b3f-9347-0db94a747c34"/>
+        <COMPID name="TA" mc="Standard.Package" uid="cf8d7179-019a-472d-8da6-9dcadf2096ac"/>
+        <COMPID name="BI" mc="Standard.Package" uid="f3b5067e-892f-46c1-9f6b-bc90e435223c"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

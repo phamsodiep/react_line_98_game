@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Ball" version="4">
+  <OBJECT>
+    <ID name="Ball" mc="Standard.Class" uid="43a80ccb-891b-445a-bb8b-4321b22c72aa"/>
+    <PID name="Design View" mc="Standard.Package" uid="21def968-d4d6-4527-8cc7-f0fa0fdf1820"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Ball]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <ID name="Boundary" mc="Infrastructure.Stereotype" uid="ecff7c88-56d8-40f5-80db-c1dd7c210ea9"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

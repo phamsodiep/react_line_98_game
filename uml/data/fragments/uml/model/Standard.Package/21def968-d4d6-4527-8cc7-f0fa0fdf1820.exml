@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Design View" version="4">
+  <OBJECT>
+    <ID name="Design View" mc="Standard.Package" uid="21def968-d4d6-4527-8cc7-f0fa0fdf1820"/>
+    <PID name="Line 98" mc="Standard.Package" uid="f4d3e988-1942-417a-bb71-8a89273c511a"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Design View]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="BallManagerStates" mc="Standard.StateMachine" uid="5169a77e-bfd4-4ce2-8e6d-b041b282c5fb"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="BallManager" mc="Standard.Interface" uid="f465316b-31ed-463d-b9ad-5a96ab54cf3f"/>
+        <COMPID name="GameBoard" mc="Standard.Class" uid="69d86a2f-9f52-4dc4-94a2-a1d6900c2cf8"/>
+        <COMPID name="GameEngine" mc="Standard.Class" uid="006d23aa-4a13-41bd-bcec-dd4c7f1b0b47"/>
+        <COMPID name="ResetButton" mc="Standard.Class" uid="18c9d30b-9a0c-4778-9c1d-b7baaec14847"/>
+        <COMPID name="ResetListener" mc="Standard.Interface" uid="d8f9246f-e011-4016-b2e4-4679aa5b96d6"/>
+        <COMPID name="BallManagerListener" mc="Standard.Interface" uid="05629899-d59d-4397-a75a-e0a77747d970"/>
+        <COMPID name="GameState" mc="Standard.Class" uid="8c511bdc-233a-401a-8aba-d84f4eb03a5c"/>
+        <COMPID name="BallData" mc="Standard.DataType" uid="e6cd169e-0c61-42cb-8028-fde4fce574d0"/>
+        <COMPID name="Ball" mc="Standard.Class" uid="43a80ccb-891b-445a-bb8b-4321b22c72aa"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="DesignClasses" mc="Standard.ClassDiagram" uid="9e03f6c2-0134-4cca-95e1-67a1421618ee"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

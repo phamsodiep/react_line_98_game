@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Content Owner" version="4">
+  <OBJECT>
+    <ID name="Content Owner" mc="Standard.Actor" uid="7513e06a-c8e1-45a7-83ea-4927940319a0"/>
+    <PID name="Line 98" mc="Standard.Package" uid="08806a86-92fa-4bb5-b9ee-a21924eaa451"/>
+    <ATTRIBUTES>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Content Owner]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

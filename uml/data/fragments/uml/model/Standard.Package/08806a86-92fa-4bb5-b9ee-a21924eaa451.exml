@@ -1,0 +1,297 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Line 98" version="4">
+  <OBJECT>
+    <ID name="Line 98" mc="Standard.Package" uid="08806a86-92fa-4bb5-b9ee-a21924eaa451"/>
+    <PID name="BA" mc="Standard.Package" uid="8db03b71-e98b-4b3f-9347-0db94a747c34"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Line 98]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="State Machine State Machine" mc="Standard.StateMachine" uid="ac5e7c72-a03d-4ea6-bd6a-bd1c42f2ed82"/>
+      </COMP>
+      <COMP relation="OwnedInformationFlow">
+        <OBJECT>
+          <ID name="click" mc="Standard.InformationFlow" uid="5329d18e-7773-4ebb-b6fa-a187c9359216"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[click]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Button" mc="Standard.Class" uid="9253c27e-d0a6-4731-85c0-f81cb7c8b515"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="display" mc="Standard.InformationFlow" uid="fbc8ff56-d1ce-47bb-be9e-52a20fd808f7"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[display]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Cell" mc="Standard.Class" uid="5e4b8707-0d93-4c22-9bdb-06f6964cf0ff"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="display" mc="Standard.InformationFlow" uid="66cd52e8-4a08-4868-8b82-f383c707422e"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[display]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Score Board" mc="Standard.Class" uid="27985faf-d564-4092-8cdf-bc9c97ba0fe9"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="notify" mc="Standard.InformationFlow" uid="3bee57e6-7c2c-4d3a-8ecd-def2e7e5b5e4"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[notify]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Win Price Listener" mc="Standard.Interface" uid="5f616340-4e03-4115-abdf-2bf95f144b45"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Content Owner" mc="Standard.Actor" uid="7513e06a-c8e1-45a7-83ea-4927940319a0"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="notify" mc="Standard.InformationFlow" uid="b9c3d9d1-797c-4291-a2c9-7e3d38f16ebc"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[notify]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Browser" mc="Standard.Actor" uid="882c6ad1-422b-4aee-89fe-891dd3f84908"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Pageload Listener" mc="Standard.Interface" uid="f63aa3ee-021f-4d3b-ac8a-5398aa49d60d"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Ball" mc="Standard.Class" uid="e46658c0-c178-45e5-a6cc-92b1014a7cdb"/>
+        <COMPID name="Cell" mc="Standard.Class" uid="5e4b8707-0d93-4c22-9bdb-06f6964cf0ff"/>
+        <COMPID name="Game Board" mc="Standard.Class" uid="9c5f93cd-bf50-45db-b347-2cc5c9f73015"/>
+        <COMPID name="Game Application" mc="Standard.Class" uid="55b31589-0f9b-400d-a269-eccd1bc3c812"/>
+        <COMPID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+        <COMPID name="Reset Game" mc="Standard.UseCase" uid="5288895d-2b81-4de2-a5cd-e1a03d440605"/>
+        <COMPID name="Move Ball" mc="Standard.UseCase" uid="8f86b0a0-a306-4da8-b8f7-ebfaa303d17f"/>
+        <COMPID name="Notify Gameover" mc="Standard.UseCase" uid="1460038d-5710-4ae5-9fd4-0dba78cc26dc"/>
+        <COMPID name="Button" mc="Standard.Class" uid="9253c27e-d0a6-4731-85c0-f81cb7c8b515"/>
+        <OBJECT>
+          <ID name="Usecase Collaboration" mc="Standard.Collaboration" uid="9c65cab5-1713-49fa-935b-9cd0d2785913"/>
+          <ATTRIBUTES>
+            <ATT name="IsConcurrent">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Usecase Collaboration]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Declared">
+              <OBJECT>
+                <ID name="player" mc="Standard.BindableInstance" uid="5773085d-d227-4cb3-891e-a090da8f13ab"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[player]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="src" mc="Standard.BindableInstance" uid="9d14d4ea-5b5e-49a4-a1e5-f2c8895383b5"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[src]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Cell" mc="Standard.Class" uid="5e4b8707-0d93-4c22-9bdb-06f6964cf0ff"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="sr" mc="Standard.BindableInstance" uid="28e82408-9902-45d6-a0fa-e798a759f6ce"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[sr]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Ball" mc="Standard.Class" uid="e46658c0-c178-45e5-a6cc-92b1014a7cdb"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="board" mc="Standard.BindableInstance" uid="31968e91-9f8f-49fb-a6d1-bd8f5915abe5"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[board]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Game Board" mc="Standard.Class" uid="9c5f93cd-bf50-45db-b347-2cc5c9f73015"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="app" mc="Standard.BindableInstance" uid="321b4acb-5f25-4bf9-8477-e06422e1d5b1"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[app]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Game Application" mc="Standard.Class" uid="55b31589-0f9b-400d-a269-eccd1bc3c812"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ds" mc="Standard.BindableInstance" uid="f6576d50-d104-43bd-a2be-1183c145bf89"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[ds]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Cell" mc="Standard.Class" uid="5e4b8707-0d93-4c22-9bdb-06f6964cf0ff"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="" mc="Standard.BindableInstance" uid="52c3d319-e387-43f1-af63-e9bd67d48b8d"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Ball" mc="Standard.Class" uid="e46658c0-c178-45e5-a6cc-92b1014a7cdb"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="reset" mc="Standard.BindableInstance" uid="fb93a0e6-70c7-40a9-af84-2a9d098d753a"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[reset]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Button" mc="Standard.Class" uid="9253c27e-d0a6-4731-85c0-f81cb7c8b515"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="score board" mc="Standard.BindableInstance" uid="70e68570-5132-4851-8e78-e1b958289798"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[score board]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Score Board" mc="Standard.Class" uid="27985faf-d564-4092-8cdf-bc9c97ba0fe9"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="callBack" mc="Standard.BindableInstance" uid="dc6459c1-d191-4a27-a708-4c44913e4680"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[callBack]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="Content Owner" mc="Standard.Actor" uid="7513e06a-c8e1-45a7-83ea-4927940319a0"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="Browser" mc="Standard.Actor" uid="882c6ad1-422b-4aee-89fe-891dd3f84908"/>
+        <COMPID name="Content Owner" mc="Standard.Actor" uid="7513e06a-c8e1-45a7-83ea-4927940319a0"/>
+        <COMPID name="View Score" mc="Standard.UseCase" uid="b7f2bf35-2481-442d-b614-aa7b4ca0699a"/>
+        <COMPID name="Notify Win Price" mc="Standard.UseCase" uid="c2d512ec-3054-41ce-9dc0-c3ef62da969d"/>
+        <COMPID name="Score Board" mc="Standard.Class" uid="27985faf-d564-4092-8cdf-bc9c97ba0fe9"/>
+        <COMPID name="Win Price Listener" mc="Standard.Interface" uid="5f616340-4e03-4115-abdf-2bf95f144b45"/>
+        <COMPID name="Pageload Listener" mc="Standard.Interface" uid="f63aa3ee-021f-4d3b-ac8a-5398aa49d60d"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Use Cases" mc="Standard.UseCaseDiagram" uid="6696e3bf-bcb1-426c-9209-5384ee80ce6b"/>
+        <COMPID name="Domain View" mc="Standard.ClassDiagram" uid="a2f8131a-ef37-4adc-bb96-15a8d83b0a96"/>
+        <COMPID name="Reset UC" mc="Standard.UseCaseDiagram" uid="2d5d14ce-083d-4d09-9822-a449b563ea5b"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

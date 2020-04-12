@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="BA" version="4">
+  <OBJECT>
+    <ID name="BA" mc="Standard.Package" uid="8db03b71-e98b-4b3f-9347-0db94a747c34"/>
+    <PID name="uml" mc="Standard.Package" uid="a9626a97-007f-4977-8b69-1287aad94909"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[BA]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedInformationFlow">
+        <OBJECT>
+          <ID name="select" mc="Standard.InformationFlow" uid="4e1123f7-0dca-47b8-8f17-a2958cb07c03"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[select]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Cell" mc="Standard.Class" uid="5e4b8707-0d93-4c22-9bdb-06f6964cf0ff"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="display" mc="Standard.InformationFlow" uid="488bdbac-fa61-4236-8737-0ca96eefb9b0"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[display]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <ID name="Ball" mc="Standard.Class" uid="e46658c0-c178-45e5-a6cc-92b1014a7cdb"/>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <ID name="Player" mc="Standard.Actor" uid="7ce863a3-4c3e-4a73-a2fa-e9843daf67f3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Line 98" mc="Standard.Package" uid="08806a86-92fa-4bb5-b9ee-a21924eaa451"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

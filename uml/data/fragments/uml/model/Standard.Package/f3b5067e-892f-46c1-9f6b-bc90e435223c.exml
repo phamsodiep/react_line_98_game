@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="BI" version="4">
+  <OBJECT>
+    <ID name="BI" mc="Standard.Package" uid="f3b5067e-892f-46c1-9f6b-bc90e435223c"/>
+    <PID name="uml" mc="Standard.Package" uid="a9626a97-007f-4977-8b69-1287aad94909"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[BI]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Domain Model" mc="Standard.Package" uid="f77f9452-5ae5-40ee-b6e0-6c412a859158"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

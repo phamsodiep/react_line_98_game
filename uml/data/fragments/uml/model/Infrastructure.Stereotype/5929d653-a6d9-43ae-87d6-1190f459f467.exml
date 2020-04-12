@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Entity" version="4">
+  <OBJECT>
+    <ID name="Entity" mc="Infrastructure.Stereotype" uid="5929d653-a6d9-43ae-87d6-1190f459f467"/>
+    <PID name="LocalProfile" mc="Infrastructure.Profile" uid="f70c4b1e-1e5c-4761-929a-39cd9deea386"/>
+    <ATTRIBUTES>
+      <ATT name="Image"><![CDATA[entity48.png]]></ATT>
+      <ATT name="Icon"><![CDATA[entity24.png]]></ATT>
+      <ATT name="IsHidden">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="LabelKey"><![CDATA[Entity]]></ATT>
+      <ATT name="BaseClassName"><![CDATA[Infrastructure.ModelElement]]></ATT>
+      <ATT name="Name"><![CDATA[Entity]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Domain Model" version="4">
+  <OBJECT>
+    <ID name="Domain Model" mc="Standard.Package" uid="f77f9452-5ae5-40ee-b6e0-6c412a859158"/>
+    <PID name="BI" mc="Standard.Package" uid="f3b5067e-892f-46c1-9f6b-bc90e435223c"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Domain Model]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Player" mc="Standard.Actor" uid="ba86dd89-48e1-404b-8ba4-c0cdb37e2aab"/>
+        <COMPID name="Game Application" mc="Standard.Class" uid="7a1a8d3f-c181-42c8-8a2c-f159269e7d2a"/>
+        <COMPID name=" Ball" mc="Standard.Class" uid="3257ae09-5c20-4691-b6d8-3c2105898f91"/>
+        <COMPID name="Game Board" mc="Standard.Class" uid="25707160-48d1-4f62-ae74-07697e357a06"/>
+        <COMPID name="Button" mc="Standard.Class" uid="2380180b-87b3-4354-88e1-46001ec08dc0"/>
+        <COMPID name="Score Board" mc="Standard.Class" uid="ac0225d4-10ef-406f-9871-37a878ff08f9"/>
+        <COMPID name="Content Owner" mc="Standard.Actor" uid="8d864741-9c1f-4c94-bf84-517150f3f8a7"/>
+        <COMPID name="Browser" mc="Standard.Actor" uid="ef620101-a996-429c-93f2-e72dedefb1f6"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Domain Classes" mc="Standard.ClassDiagram" uid="d0bf508c-b1be-4ade-9072-86132b885a8e"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

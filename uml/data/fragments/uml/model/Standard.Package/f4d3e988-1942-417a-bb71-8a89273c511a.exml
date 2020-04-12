@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Line 98" version="4">
+  <OBJECT>
+    <ID name="Line 98" mc="Standard.Package" uid="f4d3e988-1942-417a-bb71-8a89273c511a"/>
+    <PID name="TA" mc="Standard.Package" uid="cf8d7179-019a-472d-8da6-9dcadf2096ac"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Line 98]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Generic View" mc="Standard.Package" uid="c1cd8bfc-3516-4ae9-86e6-6b90fa21708d"/>
+        <COMPID name="Implementation View" mc="Standard.Package" uid="21def968-d4d6-4527-8cc7-f0fa0fdf1820"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
