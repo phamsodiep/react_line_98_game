@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 
 
 class GameBoard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.gameboardBgRef = React.createRef();
+  }
+
   componentDidMount() {
-    let bgImg = document.getElementById("gameboard_bg");
-    if (bgImg === null) return;
+    let bgImg = this.gameboardBgRef.current;
     let i = 0;
     let n = 9; // dimension
     let thick = 1;
@@ -69,7 +73,7 @@ class GameBoard extends React.Component {
     return (
       <div style={containerStyle}>
         <div style={gameBoardStyle}>
-          <canvas id="gameboard_bg">
+          <canvas ref={this.gameboardBgRef}>
           </canvas>
         </div>
       </div>
