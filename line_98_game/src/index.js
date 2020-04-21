@@ -3,13 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 class GameBoard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.gameboardBgRef = React.createRef();
-  }
-
-  componentDidMount() {
-    let bgImg = this.gameboardBgRef.current;
+  onCanvasCreate = (bgImg) => {
     let i = 0;
     let n = 9; // dimension
     let thick = 1;
@@ -73,7 +67,7 @@ class GameBoard extends React.Component {
     return (
       <div style={containerStyle}>
         <div style={gameBoardStyle}>
-          <canvas ref={this.gameboardBgRef}>
+          <canvas ref={this.onCanvasCreate}>
           </canvas>
         </div>
       </div>
