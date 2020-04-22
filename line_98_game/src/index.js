@@ -2,6 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
+class ResetButton extends React.Component {
+  resetGame() {
+    alert('Game reseting...');
+  }
+
+  render() {
+    let caption = this.props.caption;
+    caption = typeof caption === "string" ? caption : "Reset";
+    return (
+      <div className={this.props.className} onClick={this.resetGame}>
+        {caption}
+      </div>
+    );
+  }
+}
+
 class GameBoard extends React.Component {
   onCanvasCreate = (bgImg) => {
     let i = 0;
@@ -78,4 +94,9 @@ class GameBoard extends React.Component {
 ReactDOM.render(
   <GameBoard />,
   document.getElementById('line98EntryPoint')
+);
+
+ReactDOM.render(
+  <ResetButton className="reset_button" caption="重置" />,
+  document.getElementById('line98ResetButton')
 );
