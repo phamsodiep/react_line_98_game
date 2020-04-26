@@ -15,7 +15,6 @@ const COLOUR_LIST = [
 
 class ResetButton extends React.Component {
   resetGame() {
-    //alert('Game reseting...');
     gameBoardRef.resetGame();
   }
 
@@ -87,6 +86,14 @@ class Ball extends React.Component {
 }
 
 class GameBoard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      balls: []
+    };
+    this.resetGame();
+  }
+
   onCanvasCreate = (bgImg) => {
     let i = 0;
     let n = 9; // dimension
@@ -167,20 +174,15 @@ class GameBoard extends React.Component {
   //////////////////////////////////////////////////////////////////////////////
   resetGame() {
     let dimension = 9;
-    let balls = [];
     let i = 0;
     let j = 0;
     for (i = 0; i < dimension; i++) {
-      balls[i] = [];
+      this.state.balls[i] = [];
       for (j = 0; j < dimension; j++) {
-        balls[i][j] = 1; // cyan colour
+        this.state.balls[i][j] = 1; // cyan colour
       }
     }
-    // Update balls property of this.state by this function
-    // results in this.render() method invoked by React
-    this.setState((state, props) => ({
-      balls: balls
-    }));
+    this.forceUpdate();
   }
 
   createBalls() {
