@@ -71,14 +71,21 @@ class Ball extends React.Component {
     };
   }
 
+  onClick = () => {
+    if (typeof this.props.onClick === "function") {
+      this.props.onClick(this.props.id);
+    }
+  }
+
   render() {
     let colourId = this.getColourId();
     let cellStyle = this.getCellStyle();
     let ballStyle = this.deriveBallStyle(colourId);
+    ballStyle.animation = this.props.animation;
 
     return (
       <div style={cellStyle}>
-        <div style={ballStyle}>
+        <div style={ballStyle} onClick={this.onClick}>
         </div>
       </div>
     );
@@ -89,7 +96,8 @@ class GameBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      balls: []
+      balls: [],
+      focusedBallId: -1
     };
     this.resetGame();
   }
@@ -172,6 +180,12 @@ class GameBoard extends React.Component {
   //////////////////////////////////////////////////////////////////////////////
   // BallManager interface
   //////////////////////////////////////////////////////////////////////////////
+  onClick = (id) => {
+    this.setState((state, props) => ({
+      focusedBallId: id
+    }));
+  }
+
   resetGame() {
     let dimension = 9;
     let i = 0;
@@ -202,6 +216,10 @@ class GameBoard extends React.Component {
   }
 
   createBall(r, c, colourId) {
+    let dimension = 9;
+    let ballId = r * dimension + c;
+    let animation = this.state.focusedBallId === ballId ?
+      "ballFocused 0.25s linear 0s infinite alternate" : null;
     let thick = 1;
     let cellSize = 50;
     let sz = cellSize + thick;
@@ -209,12 +227,32 @@ class GameBoard extends React.Component {
     let top = r * sz;
 
     return (<Ball
+      id={ballId}
       left={left}
       top={top}
       colourId={colourId}
+      onClick={this.onClick}
+      animation={animation}
     />);
   }
 }
+
+function initializeAnimationCsses() {
+  let cssNode = document.createElement('STYLE');
+  let entryPoint = document.getElementById('line98EntryPoint');
+  let parentNode = entryPoint.parentNode;
+  let cssStr = `
+    @keyframes ballFocused {
+      from {}
+      to {margin-bottom: 15px}
+    }
+  `;
+  cssNode.type = 'text/css';
+  cssNode.innerHTML = cssStr;
+  cssNode = parentNode.insertBefore(cssNode, entryPoint);
+}
+
+initializeAnimationCsses();
 
 var gameBoardRef = ReactDOM.render(
   <GameBoard />,
