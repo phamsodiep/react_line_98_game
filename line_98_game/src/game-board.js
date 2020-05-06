@@ -146,6 +146,10 @@ export class Ball extends React.Component {
     }
   }
 
+  onClick = () => {
+    this.props.onClick(this.props.id);
+  }
+
   render() {
     let colourId = this.getColourId();
     let cellStyle = this.getCellStyle();
@@ -156,6 +160,7 @@ export class Ball extends React.Component {
       <div style={cellStyle}>
         <div
           style={ballStyle}
+          onClick={this.onClick}
           ref={this.onBallCreate}
         >
         </div>

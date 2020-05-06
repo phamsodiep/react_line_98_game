@@ -34,7 +34,12 @@ class Line98 {
     let cssNode = document.createElement('STYLE');
     let entryPoint = document.getElementById(this.namePrefix + 'EntryPoint');
     let parentNode = entryPoint.parentNode;
-    let cssStr = "";
+    let cssStr = `
+      @keyframes ballFocused {
+        from {}
+        to {margin-bottom: 15px}
+      }
+    `;
     cssNode.type = 'text/css';
     for (i = 0; i < GAME_CONFIG.COLOUR_LIST.length; i++) {
       cssStr += `

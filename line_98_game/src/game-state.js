@@ -19,6 +19,14 @@ export class GameState {
     this.cellCount = dimension * dimension;
     this.matrix = matrix;
     this.gameState = GAME_STATE.INITIALIZING;
+    this.focusedBall = null;
+  }
+
+  isOccupied(ball) {
+    let dimension = this.matrix.length;
+    let r = Math.floor(ball / dimension);
+    let c = ball % dimension;
+    return (this.matrix[r][c] !== 0);
   }
 
   getState() {
@@ -28,6 +36,14 @@ export class GameState {
   setState(state) {
     this.gameState = state;
     return true;
+  }
+
+  getFocusedBall() {
+    return this.focusedBall;
+  }
+
+  setFocusedBall(ball) {
+    this.focusedBall = ball;
   }
 
   resetGame() {

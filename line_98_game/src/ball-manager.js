@@ -32,7 +32,13 @@ export var BallManager = {
         break;
 
         case BALL_STATE.FOCUSED:
-          // @TODO: implement me
+          if (
+            this.state.animatedBalls.length > 0 &&
+            this.state.animatedBalls[0] === id
+          ) {
+            animation =
+              `ballFocused ${ANI_SPEED}s linear 0s infinite alternate`;
+          }
         break;
 
         case BALL_STATE.REMOVING:
@@ -51,6 +57,7 @@ export var BallManager = {
       size={sz}
       colourId={colourId}
       ballManager={ballManager}
+      onClick={this.onClick}
       animation={animation}
     />);
   },
@@ -69,7 +76,7 @@ export var BallManager = {
 
   resetGame() {
     this.ballState = BALL_STATE.OPERATING_DONE;
-    ///////this.onClick = this.onClick.bind(this);
+    this.onClick = this.onClick.bind(this);
     let isNew = this.state.balls.length < this.config.dimension;
     let i = 0;
     let j = 0;
@@ -82,6 +89,25 @@ export var BallManager = {
       }
     }
     this.state.animatedBalls = [];
+    this.forceUpdate();
+  },
+
+  focusBall(ball) {
+    let state = this.ballState;
+    switch (state) {
+      case BALL_STATE.OPERATING_DONE:
+        this.ballState = BALL_STATE.FOCUSED;
+        // fall through
+
+      case BALL_STATE.FOCUSED:
+        this.setState({
+          animatedBalls: [ball]
+        });
+      break;
+
+      default:
+      break;
+    }
     this.forceUpdate();
   },
 
@@ -103,6 +129,13 @@ export var BallManager = {
       this.setState({
         animatedBalls: animatedBalls
       });
+    }
+  },
+
+  onClick(id) {
+    if (this.ballState === BALL_STATE.OPERATING_DONE ||
+      this.ballState === BALL_STATE.FOCUSED) {
+      this.ballManagerListener.select(id);
     }
   }
 };
