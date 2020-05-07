@@ -28,6 +28,10 @@ export var BallManagerListener = {
             this.gameState.setFocusedBall(ball);
           }
         }
+        else {
+          // move request
+          alert(focusedBall + " - " + ball);
+        }
       break;
 
       default:
