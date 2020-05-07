@@ -1,5 +1,4 @@
 import {
-//  GAME_CONFIG,
   GAME_STATE,
   BALL_STATE
 } from './common.js';
@@ -27,14 +26,6 @@ export var BallManagerListener = {
           if (ball !== focusedBall) {
             this.ballManager.focusBall(ball);
             this.gameState.setFocusedBall(ball);
-          }
-        }
-        else {
-          // move request
-          let path = this.gameState.searchPath(focusedBall, ball);
-          if (path.length > 0) {
-            this.gameState.setState(GAME_STATE.BALL_MOVING);
-            this.ballManager.moveBallWithAnimation(path);
           }
         }
       break;
