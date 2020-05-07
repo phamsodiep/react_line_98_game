@@ -111,4 +111,99 @@ export class GameState {
     }
     return balls;
   }
+
+  searchPath(src, des) {
+    let dim = this.matrix.length;
+    let matrix = this.matrix;
+    let r0 = Math.floor(src / dim);
+    let c0 = src % dim;
+    let r1 = Math.floor(des / dim);
+    let c1 = des % dim;
+    let myColour = matrix[r0][c0];
+    let path = [[r0, c0, -1, 's']];
+    let isArrived = function() {
+      let i = 0;
+      for (i = 0; i < path.length; i++) {
+        if (path[i][0] === r1 && path[i][1] === c1) {
+          return i;
+        }
+      }
+      return -1;
+    }
+    let step = 0;
+    let getAllOneStepPath = function(step) {
+      let result = false;
+      let cell = path[step];
+      matrix[cell[0]][cell[1]] = -1;
+      if (
+        cell[0] + 1 < dim
+        && matrix[cell[0] + 1][cell[1]] === 0
+      ) {  // down
+        path[path.length] = [cell[0] + 1, cell[1], step, 'd'];
+        result = true;
+      }
+      if (
+        cell[0] - 1 >= 0
+        && matrix[cell[0] - 1][cell[1]] === 0
+      )  {  // up
+        path[path.length] = [cell[0] - 1, cell[1], step, 'u'];
+        result = true;
+      }
+      if (
+        cell[1] + 1 < dim
+        && matrix[cell[0]][cell[1] + 1] === 0
+      ) {  // right
+        path[path.length] = [cell[0], cell[1] + 1, step, 'r'];
+        result = true;
+      }
+      if (
+        cell[1] - 1 >= 0
+        && matrix[cell[0]][cell[1] -1] === 0
+      )   {  // left
+        path[path.length] = [cell[0], cell[1] - 1, step, 'l'];
+        result = true;
+      }
+      return result;
+    }
+    let target = 0;
+    for (
+      target = isArrived();
+      target < 0 && step < path.length;
+      target = isArrived()
+    ) {
+      getAllOneStepPath(step++);
+    }
+    // Remove travel flags
+    matrix[r0][c0] = myColour;
+    let r = 0;
+    let c = 0;
+    for (r = 0; r < dim; r++) {
+      for (c = 0; c < dim; c++) {
+        if (matrix[r][c] === -1) {
+          matrix[r][c] = 0;
+        }
+      }
+    }
+    if (step < path.length && target >= 0) {
+      // a path is found
+      let traces = [];
+      for (
+        step = target;
+        path[step][0] !== r0 || path[step][1] !== c0;
+        step = path[step][2]
+      ) {
+        traces[traces.length] = step;
+      }
+      // include ngoc khoi
+      traces[traces.length] = step;
+      let result = [];
+      let i = 0;
+      for(i = traces.length - 1; i >= 0; i--) {
+        result[result.length] = path[traces[i]][0] * dim + path[traces[i]][1];
+      }
+      return result;
+    }
+    return [];
+  }
+
 }

@@ -30,7 +30,11 @@ export var BallManagerListener = {
         }
         else {
           // move request
-          alert(focusedBall + " - " + ball);
+          let path = this.gameState.searchPath(focusedBall, ball);
+          if (path.length > 0) {
+            this.gameState.setState(GAME_STATE.BALL_MOVING);
+            this.ballManager.moveBallWithAnimation(path);
+          }
         }
       break;
 

@@ -20,7 +20,26 @@ export var BallManager = {
     let ballManager = isLast ? this : null;
 
     if (this.ballState === BALL_STATE.MOVING) {
-      // @TODO: implement me
+      if (animatedIdx >= 0) {
+        let movedBallId = this.state.animatedBalls[0];
+        let rm = Math.floor(movedBallId / this.config.dimension);
+        let cm = movedBallId % this.config.dimension;
+        let movedBallColourId = this.state.balls[rm][cm];
+        let duration = GAME_CONFIG.BALL_MOVING_SPEED;
+        let isMiddle = (animatedIdx > 0 &&
+          animatedIdx < this.state.animatedBalls.length - 1);
+        let count = isMiddle ? 2 : 1;
+        let delay = animatedIdx === 0 ? 0 : animatedIdx * duration;
+        let dir = "alternate";
+        if (animatedIdx === 0) dir = "reverse";
+        if (animatedIdx === this.state.animatedBalls.length - 1) {
+          dir = "normal";
+        }
+        animation = [
+          `ballGenerating${movedBallColourId} ${duration}s linear `,
+          `${delay}s ${count} ${dir} forwards`
+        ].join('');
+      }
     }
     else if (colourId !== 0) {
       switch(this.ballState) {
@@ -137,5 +156,12 @@ export var BallManager = {
       this.ballState === BALL_STATE.FOCUSED) {
       this.ballManagerListener.select(id);
     }
+  },
+
+  moveBallWithAnimation(path) {
+    this.ballState = BALL_STATE.MOVING;
+    this.setState({
+      animatedBalls: path
+    });
   }
 };
