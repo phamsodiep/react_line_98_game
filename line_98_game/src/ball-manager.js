@@ -61,7 +61,12 @@ export var BallManager = {
         break;
 
         case BALL_STATE.REMOVING:
-          // @TODO: implement me
+          if (animatedIdx >= 0) {
+            animation = [
+              `ballGenerating${colourId} ${ANI_SPEED}s linear `,
+              `0s 1 reverse forwards`
+            ].join('');
+          }
         break;
 
         default:
@@ -149,6 +154,13 @@ export var BallManager = {
         animatedBalls: animatedBalls
       });
     }
+  },
+
+  removeWithAnimation(removedBalls) {
+    this.ballState = BALL_STATE.REMOVING;
+    this.setState({
+      animatedBalls: removedBalls
+    });
   },
 
   onClick(id) {

@@ -9,6 +9,7 @@ export var ResetListener = {
   resetGame() {
     this.gameState.resetGame();
     this.ballManager.resetGame();
+    this.scoreBoard.display(0);
     let balls = this.gameState.generateBalls(GAME_CONFIG.BALL_GENERATING_COUNT);
     this.gameState.setState(GAME_STATE.BALL_GENERATING);
     let _this = this;

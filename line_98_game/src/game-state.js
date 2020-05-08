@@ -1,4 +1,5 @@
 import {
+  GAME_CONFIG,
   GAME_STATE
 } from './common.js';
 
@@ -18,6 +19,7 @@ export class GameState {
     }
     this.cellCount = dimension * dimension;
     this.matrix = matrix;
+    this.totalScore = 0;
     this.gameState = GAME_STATE.INITIALIZING;
     this.focusedBall = null;
   }
@@ -46,6 +48,9 @@ export class GameState {
     this.focusedBall = ball;
   }
 
+  getTotalScore() {
+    return this.totalScore;
+  }
   resetGame() {
     let dimension = this.matrix.length;
     let i = 0;
@@ -56,6 +61,8 @@ export class GameState {
       }
     }
     this.gameState = GAME_STATE.INITIALIZING;
+    this.focusedBall = null;
+    this.totalScore = 0;
   }
 
   getCellColourIndex(id) {
@@ -207,7 +214,102 @@ export class GameState {
   }
 
   doScore(des) {
-    return [];
+    let dimension = this.matrix.length;
+    let result = this.computeScore(des);
+    let i = 0;
+    for (i = 0; i < result.length; i++) {
+      let movedBallId = result[i];
+      let rm = Math.floor(movedBallId / dimension);
+      let cm = movedBallId % dimension;
+      this.matrix[rm][cm] = 0;
+    }
+    this.totalScore += result.length;
+    if (this.totalScore >= GAME_CONFIG.WIN_PRICE_SCORE) {
+      this.gameState = GAME_STATE.WIN_PRICE;
+    }
+    return result;
+  }
+
+  computeScore(des) {
+    let dimension = this.matrix.length;
+
+    let goUp = function(i) {
+      // r--
+      let r = Math.floor(i / dimension);
+      return r > 0 ? i - dimension : -1;
+    }
+    let goDown = function(i) {
+      // r++
+      let r = Math.floor(i / dimension);
+      return r < (dimension - 1) ? i + dimension : -1;
+    }
+    let goLeft = function(i) {
+      // c--
+      let c = i % dimension;
+      return c > 0 ? i - 1 : -1;
+    }
+    let goRight = function(i) {
+      // c++
+      let c = i % dimension;
+      return c < (dimension - 1) ? i + 1 : -1;
+    }
+    let goUpRight = function(i) {
+      // c++ & r--
+      let r = Math.floor(i / dimension);
+      let c = i % dimension;
+      return c < (dimension - 1) && r > 0 ? (i - dimension) + 1 : -1;
+    }
+    let goDownLeft = function(i) {
+      // c-- & r++
+      let r = Math.floor(i / dimension);
+      let c = i % dimension;
+      return c > 0 && r < (dimension - 1) ? (i + dimension) - 1 : -1;
+    }
+    let goUpLeft = function(i) {
+      // c-- & r--
+      let r = Math.floor(i / dimension);
+      let c = i % dimension;
+      return c > 0 && r > 0 ? (i - dimension) - 1 : -1;
+    }
+    let goDownRight = function(i) {
+      // c++ & r++
+      let r = Math.floor(i / dimension);
+      let c = i % dimension;
+      return c < (dimension - 1) && r < (dimension - 1) ? (i + dimension) + 1 : -1;
+    }
+
+    let lineFuncs = [
+      [goLeft, goRight],         // x-axis
+      [goUp, goDown],            // y-axis
+      [goDownLeft, goUpRight],   // diagonal1 ->  /
+      [goUpLeft, goDownRight]    // diagonal2 ->  `.
+    ];
+    let scoredBalls = [];
+    let i = 0;
+    let j = 0;
+    let targetColourId = this.getCellColourIndex(des);
+    for (i = 0; i < 4; i++) {
+      let candidateBalls = [];
+      let count = 1;
+      for (j = 0; j < 2; j++) {
+        let step = des;
+        for (
+          step = lineFuncs[i][j](step);
+          step >= 0 && this.getCellColourIndex(step) === targetColourId;
+          step = lineFuncs[i][j](step)
+        ){
+          candidateBalls[candidateBalls.length] = step;
+          count++;
+        }
+      }
+      if (count >= GAME_CONFIG.MIN_BALLS_TO_SCORE) {
+        scoredBalls = scoredBalls.concat(candidateBalls);
+      }
+    }
+    if (scoredBalls.length > 0) {
+      scoredBalls[scoredBalls.length] = des;
+    }
+    return scoredBalls;
   }
 
   moveDone(src, des) {

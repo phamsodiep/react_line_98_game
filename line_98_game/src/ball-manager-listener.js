@@ -68,7 +68,14 @@ export var BallManagerListener = {
 
           // Use case implementation
           let removedBalls = this.gameState.doScore(lastBall);
-          if (removedBalls.length === 0) {
+          if (removedBalls.length > 0) {
+            this.gameState.setState(GAME_STATE.BALL_SCORING);
+            this.ballManager.removeWithAnimation(removedBalls);
+            let _this = this;
+            setTimeout(function() {
+              _this.animationDone(removedBalls[0]);
+            }, 2);
+          } else {
             let balls =
               this.gameState.generateBalls(GAME_CONFIG.BALL_GENERATING_COUNT);
             this.gameState.setState(GAME_STATE.BALL_GENERATING);
@@ -81,6 +88,20 @@ export var BallManagerListener = {
         }
       break;
 
+      case GAME_STATE.BALL_SCORING:
+        // Boundary post processing
+        for (let i = 0; i < this.ballManager.state.animatedBalls.length; i++) {
+          let rid = this.ballManager.state.animatedBalls[i];
+          let r = Math.floor(rid / this.ballManager.config.dimension);
+          let c = rid % this.ballManager.config.dimension;
+          this.ballManager.state.balls[r][c] = 0;
+        }
+        this.ballManager.ballState = BALL_STATE.OPERATING_DONE;
+        // GameState post processing
+        let totalScore = this.gameState.getTotalScore();
+        this.scoreBoard.display(totalScore);
+        this.gameState.setState(GAME_STATE.MOVE_WAITING);
+      break;
       default:
       break;
     }
