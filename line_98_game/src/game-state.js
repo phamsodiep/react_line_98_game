@@ -20,6 +20,7 @@ export class GameState {
     this.cellCount = dimension * dimension;
     this.matrix = matrix;
     this.totalScore = 0;
+    this.totalBall = 0;
     this.gameState = GAME_STATE.INITIALIZING;
     this.focusedBall = null;
   }
@@ -36,8 +37,14 @@ export class GameState {
   }
 
   setState(state) {
-    this.gameState = state;
-    return true;
+    if (this.gameState >= GAME_STATE.GAME_OVER) {
+      return false;
+    }
+    if (state < GAME_STATE.GAME_OVER) {
+      this.gameState = state;
+      return true;
+    }
+    return false;
   }
 
   getFocusedBall() {
@@ -51,6 +58,7 @@ export class GameState {
   getTotalScore() {
     return this.totalScore;
   }
+
   resetGame() {
     let dimension = this.matrix.length;
     let i = 0;
@@ -63,6 +71,7 @@ export class GameState {
     this.gameState = GAME_STATE.INITIALIZING;
     this.focusedBall = null;
     this.totalScore = 0;
+    this.totalBall = 0;
   }
 
   getCellColourIndex(id) {
@@ -116,6 +125,7 @@ export class GameState {
       let c = idx % dimension;
       this.matrix[r][c] = colourId;
     }
+    this.totalBall += balls.length;
     return balls;
   }
 
@@ -223,8 +233,9 @@ export class GameState {
       let cm = movedBallId % dimension;
       this.matrix[rm][cm] = 0;
     }
-    this.totalScore += result.length;
-    if (this.totalScore >= GAME_CONFIG.WIN_PRICE_SCORE) {
+    this.totalBall -= result.length;
+    this.totalScore += result.length * (result.length - 4);
+    if (this.totalBall <= 0 || this.totalScore >= GAME_CONFIG.WIN_PRICE_SCORE) {
       this.gameState = GAME_STATE.WIN_PRICE;
     }
     return result;

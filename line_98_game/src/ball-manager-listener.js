@@ -102,6 +102,12 @@ export var BallManagerListener = {
         this.scoreBoard.display(totalScore);
         this.gameState.setState(GAME_STATE.MOVE_WAITING);
       break;
+
+      case GAME_STATE.WIN_PRICE:
+        this.scoreBoard.display(this.gameState.getTotalScore());
+        this.onWinPrice(this.gameState.getTotalScore());
+      break;
+
       default:
       break;
     }
