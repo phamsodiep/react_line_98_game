@@ -48,8 +48,28 @@ export var BallManagerListener = {
     let state = this.gameState.getState();
     switch (state) {
       case GAME_STATE.BALL_GENERATING:
-        this.gameState.setState(GAME_STATE.MOVE_WAITING);
-        this.ballManager.ballState = BALL_STATE.OPERATING_DONE;
+        {
+          let totalRemovedBalls = [];
+          let balls = this.ballManager.state.animatedBalls;
+          balls.map((ball) => {
+            return totalRemovedBalls =
+              totalRemovedBalls.concat(this.gameState.doScore(ball))
+          });
+          if (totalRemovedBalls.length > 0) {
+            this.gameState.setState(GAME_STATE.BALL_SCORING);
+            this.ballManager.removeWithAnimation(totalRemovedBalls);
+            let _this = this;
+            setTimeout(function() {
+              _this.animationDone(totalRemovedBalls[0]);
+            }, 2);
+          }
+          else {
+            let totalScore = this.gameState.getTotalScore();
+            this.scoreBoard.display(totalScore);
+            this.gameState.setState(GAME_STATE.MOVE_WAITING);
+            this.ballManager.ballState = BALL_STATE.OPERATING_DONE;
+          }
+        }
       break;
 
       case GAME_STATE.BALL_MOVING:
