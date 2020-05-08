@@ -206,21 +206,4 @@ export class GameState {
     return [];
   }
 
-  doScore(des) {
-    return [];
-  }
-
-  moveDone(src, des) {
-    let dimension = this.matrix.length;
-    let r = Math.floor(src / dimension);
-    let c = src % dimension;
-    let colourId = this.matrix[r][c];
-
-    this.matrix[r][c] = 0;
-    r = Math.floor(des / dimension);
-    c = des % dimension;
-    this.matrix[r][c] = colourId;
-    this.focusedBall = null;
-  }
-
 }

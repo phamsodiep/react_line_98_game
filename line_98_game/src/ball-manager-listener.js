@@ -1,5 +1,4 @@
 import {
-  GAME_CONFIG,
   GAME_STATE,
   BALL_STATE
 } from './common.js';
@@ -48,49 +47,8 @@ export var BallManagerListener = {
     let state = this.gameState.getState();
     switch (state) {
       case GAME_STATE.BALL_GENERATING:
-        {
-          let totalRemovedBalls = [];
-          let balls = this.ballManager.state.animatedBalls;
-          balls.map((ball) => {
-            return totalRemovedBalls =
-              totalRemovedBalls.concat(this.gameState.doScore(ball))
-          });
-          if (totalRemovedBalls.length > 0) {
-          }
-          else {
-            this.gameState.setState(GAME_STATE.MOVE_WAITING);
-            this.ballManager.ballState = BALL_STATE.OPERATING_DONE;
-          }
-        }
-      break;
-
-      case GAME_STATE.BALL_MOVING:
-        {
-          // Boundary post processing
-          let movedBallId = this.ballManager.state.animatedBalls[0];
-          let rm = Math.floor(movedBallId / this.ballManager.config.dimension);
-          let cm = movedBallId % this.ballManager.config.dimension;
-          let movedBallColourId = this.ballManager.state.balls[rm][cm];
-          let r = Math.floor(lastBall / this.ballManager.config.dimension);
-          let c = lastBall % this.ballManager.config.dimension;
-          this.ballManager.state.balls[r][c] = movedBallColourId;
-          this.ballManager.state.balls[rm][cm] = 0;
-          // GameState post processing
-          this.gameState.moveDone(movedBallId, lastBall);
-
-          // Use case implementation
-          let removedBalls = this.gameState.doScore(lastBall);
-          if (removedBalls.length === 0) {
-            let balls =
-              this.gameState.generateBalls(GAME_CONFIG.BALL_GENERATING_COUNT);
-            this.gameState.setState(GAME_STATE.BALL_GENERATING);
-            this.ballManager.generateBallsAnimation(balls);
-            let _this = this;
-            setTimeout(function() {
-              _this.animationDone(balls[balls.length - 1]);
-            }, 2);
-          }
-        }
+        this.gameState.setState(GAME_STATE.MOVE_WAITING);
+        this.ballManager.ballState = BALL_STATE.OPERATING_DONE;
       break;
 
       default:
