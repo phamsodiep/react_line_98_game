@@ -85,9 +85,9 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="display cells" mc="Standard.InformationFlow" uid="55d2f879-4f8c-4b95-996b-eb00219e120a"/>
+          <ID name="display cells grid" mc="Standard.InformationFlow" uid="55d2f879-4f8c-4b95-996b-eb00219e120a"/>
           <ATTRIBUTES>
-            <ATT name="Name"><![CDATA[display cells]]></ATT>
+            <ATT name="Name"><![CDATA[display cells grid]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>

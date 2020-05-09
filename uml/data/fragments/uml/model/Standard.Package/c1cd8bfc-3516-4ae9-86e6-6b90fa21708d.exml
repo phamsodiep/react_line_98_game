@@ -18,6 +18,7 @@
         <COMPID name="ResetGame" mc="Standard.Interaction" uid="6a845f61-1649-4a07-988b-f260236e8c03"/>
         <COMPID name="MoveBallScoreNone" mc="Standard.Interaction" uid="4e4c6f7f-bc66-4525-bd6d-f8f0ec281877"/>
         <COMPID name="MoveBallScoreNoneThenSome" mc="Standard.Interaction" uid="4eff060f-798f-4256-84fc-10f42f2ff0c9"/>
+        <COMPID name="MoveBallScoreSome" mc="Standard.Interaction" uid="47b0df37-91b3-46cc-ab72-eff1972bd76a"/>
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="BallManager" mc="Standard.Interface" uid="32c3a8d4-5ed1-4a85-99b9-546cf6685936"/>
