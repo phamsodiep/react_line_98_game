@@ -98,12 +98,16 @@ export var BallManagerListener = {
           } else {
             let balls =
               this.gameState.generateBalls(GAME_CONFIG.BALL_GENERATING_COUNT);
-            this.gameState.setState(GAME_STATE.BALL_GENERATING);
-            this.ballManager.generateBallsAnimation(balls);
-            let _this = this;
-            setTimeout(function() {
-              _this.animationDone(balls[balls.length - 1]);
-            }, 2);
+            if (balls === null) { // Game is over
+              alert('Game is over');
+            } else {
+              this.gameState.setState(GAME_STATE.BALL_GENERATING)
+              this.ballManager.generateBallsAnimation(balls);
+              let _this = this;
+              setTimeout(function() {
+                _this.animationDone(balls[balls.length - 1]);
+              }, 2);
+            }
           }
         }
       break;

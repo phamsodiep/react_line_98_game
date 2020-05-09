@@ -96,7 +96,29 @@ export class GameState {
     return idx;
   }
 
+  testGameOver(generateCount) {
+    let sz = this.matrix.length;
+    let i = 0;
+    let j = 0;
+    let pass = 0;
+    for (i = 0; i < sz; i++) {
+      for (j = 0; j < sz; j++) {
+        if (this.matrix[i][j] === 0) {
+          pass++;
+          if (pass > generateCount) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
+
   generateBalls(count) {
+    if (!this.testGameOver(count)) {
+      this.gameState = GAME_STATE.GAME_OVER;
+      return null;
+    }
     let dimension = this.matrix.length;
     let balls = Array(count);
     let i = 0;
